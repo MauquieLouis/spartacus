@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	<div class="content">
+		{% load static %}
+		<div class="fontGrS text-center" id="title">
+			Modif Form
+		</div>
+		<div class="mt20px"></div>
+		<div class="row">
+			<div class="col-12 text-center"><h4>{{ nom }} {{ prenom }}</h4></div>
+		</div>
+		<form method="post">
+						<div class="row">
+							<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10 zoneForm" style=padding-top:40px;>
+								<div class=" col-12">
+									{{ form.heureLivraison.label }}
+									{{ form.heureLivraison }}
+								</div>
+								<div class=" col-12">
+									{{ form.menu.label }}</br>
+									{% for menu in form.menu %}
+										<div class="form-check-inline">{{ menu }}</div>
+									{% endfor %}
+								</div>
+								<div class="mt20px"></div>
+		   						{% csrf_token %}
+								<div class=" col-12">
+									<input id="submit" type="submit" value="Valider" class="btn btn-primary mb-2 offset-3 col-6">
+								</div>
+		   						<div class="mt40px"></div>
+		    				</div>
+	    				</div>
+					</form>
+	</div>
+	<script>
+		
+	</script>
+{% endblock %}

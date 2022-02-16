@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	{% load static %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Scan Qr Code
+		</div>
+		<div class="mt40px"></div>
+		<div class="row">
+			{% for code in listeCode %}
+				<div class="col-12">
+				<strong>{{ forloop.counter }}</strong>) Lien : <strong>www.spartacus2021.fr/scanCode/{{ code.link }}</strong> Gagnant ? :
+				{% if code.gagnant %} <strong>Oui</strong> {% else %} Non {% endif %} Trouvé ? : {% if code.trouve %}<strong> Oui </strong>{% else %} Non {% endif %}
+				</div>
+			{% endfor %}	
+      	</div>
+	</div>
+{% endblock %}

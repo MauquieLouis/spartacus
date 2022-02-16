@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	<div class="content">
+		{% load static %}
+		{% load i18n %}
+		<div class="fontGrS text-center" id="title">
+			Liste Commandes Campagne
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<a href="{% url 'main:listNonValid' %}">Liste non validé</a>
+			</div>
+		</div>
+		<div class="row" id="infoCommande">
+			<div class="col-4 text-center">Total : <strong>{{ countTotal }}</strong></div>
+			<div class="col-4 text-center">Total non validé : <strong>{{ countNonValid }}</strong></div>
+			<div class="col-4 text-center">Total validé : <strong>{{ countCommande }}</strong></div>
+		</div>
+		<div class="row">
+			<div class="offset-3 col-3">Menu salé : <strong>{{ countSale }}</strong></div>
+			<div class="col-3">Menu sucrée : <strong>{{ countSucre }}</strong></div>
+		</div>
+		<div class="mt10px"></div>
+		<div class="row">
+			{% for commande in commandes %}
+				<div class="col-12">
+					Id : <strong>{{ commande.id }}</strong>, 
+					<strong>{{ commande.nom }} {{ commande.prenom }}</strong>, Horaire :
+					 <strong>{% language 'fr' %}{{ commande.dateLivraison|date:'l j F H:i'|title }}{% endlanguage %}</strong>, 
+					 adresse : <strong>{{ commande.address }}</strong>,
+					 Menu : <strong>{{ commande.menu }}</strong>,
+					 Numéro Tel. : <strong>{{ commande.numTel }}</strong>,
+					 Demande : <strong>{{ commande.demande }}</strong>
+					 
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

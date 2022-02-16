@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	{% load static %}
+	{% load i18n %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Liste Pronostic Match
+		</div>
+		<div class="mt20px"></div>
+		<div class="row">
+			{% for match in matchs %}
+				<div class="col-12 col-md-6 col-lg-4">
+					<a href="{% url 'main:detailPronostic' match.id %}" class="disableAEffect">
+						<div class="matchCard">
+							<div class="row">
+								<div class="col-6">
+									<div id="txt" class="text-center">
+										<h4>{{ match.equipe1 }}</h4>
+									</div>
+									<div id="img" style="position:relative">
+										<img src="{{ match.imgEquipe1.url }}" style="height:100px;position:absolute;left:50%;transform:translate(-50%)">
+									</div>
+								</div>
+								<div class="col-6 borderLeft" style="height:145px">
+									<div id="txt" class="text-center">
+										<h4>{{ match.equipe2 }}</h4>
+									</div>
+									<div id="img" style="position:relative">
+										<img src="{{ match.imgEquipe2.url }}" style="height:100px;position:absolute;left:50%;transform:translate(-50%)">
+									</div>
+								</div>
+								
+							</div>
+							<div class="row text-center matchDate" id="date">
+								<h5>
+									{% language 'fr' %}
+										{{ match.dateMatch|date:'l j F H:i'|title }}
+									{% endlanguage %}
+								</h5>
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

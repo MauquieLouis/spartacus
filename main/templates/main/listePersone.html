@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	<div class="content">
+		{% load static %}
+		<div class="fontGrS text-center" id="title">
+			Liste Personnes + chambres
+		</div>
+		<div class="mt20px"></div>
+		<div class="row">
+			<div class="col-6 text-center"><a href="{% url 'main:listePersonne' 'soir' %}">Tartiflette</a></div>
+			<div class="col-6 text-center"><a href="{% url 'main:listePersonne' 'matin' %}">PtitDej</a></div>
+		</div>
+		<div class="mt20px"></div>
+		<div class="row">
+			{% for personne in commandes %}
+				<div class="col-12">
+					<strong>{{ personne.prenom }} {{ personne.nom }}</strong> : chambre <strong> {{ personne.address }}</strong> menu <strong>{{ personne.menu}} </strong> horaire : <strong>{{ personne.dateLivraison|date:'H:i' }}</strong> numTel : <strong>{{ personne.numTel }}</strong>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<script>
+		
+	</script>
+{% endblock %}

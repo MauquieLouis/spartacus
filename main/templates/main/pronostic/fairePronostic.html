@@ -1,0 +1,155 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	{% load static %}
+	{% load i18n %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Pronostic
+		</div> 
+		<div class="mt20px"></div>
+		<div class="row">
+			<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10">
+				<div class="row">
+					<div class="col-6 text-center">
+						<a href="{% if match %}{% url 'main:detailPronostic' match.id %}{% else %}#{% endif %}" class="disableAEffect">
+							<div class="col-12 btnSqr">
+								<h5 class="colorRed">Pronostic match actuel</h5>
+							</div>
+						</a>
+					</div>
+					<div class="col-6 text-center">
+						<a href="{% url 'main:listePronostic' %}" class="disableAEffect">
+							<div class="col-12 btnSqr">
+								<h5 class="colorRed">Pronostic ancien match</h5>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt20px"></div>
+		{% if match %}
+		<div class="col-12">
+			<div class="row">
+				<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10">
+					{% if form.errors %}
+					    {% for field in form %}
+					        {% for error in field.errors %}
+					            <p> {{ error }} </p>
+					        {% endfor %}
+					    {% endfor %}
+					{% endif %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="mt40px"></div>
+				<div class="col-12" style="padding-left:40px;padding-right:40px;">
+<!-- 					<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10 zoneForm"> -->
+<!-- 						<div class="row"> -->
+<!-- 							<div class="col-6"> -->
+<!-- 								<div id="txt" class="text-center"> -->
+<!-- 									<h4>{{ match.equipe1 }}</h4> -->
+<!-- 								</div> -->
+<!-- 								<div id="img" style="position:relative"> -->
+<!-- 									<img src="{{ match.imgEquipe1.url }}" style="height:100px;position:absolute;left:50%;transform:translate(-50%)"> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-6 borderLeft" style="height:145px"> -->
+<!-- 								<div id="txt" class="text-center"> -->
+<!-- 									<h4>{{ match.equipe2 }}</h4> -->
+<!-- 								</div> -->
+<!-- 								<div id="img" style="position:relative"> -->
+<!-- 									<img src="{{ match.imgEquipe2.url }}" style="height:100px;position:absolute;left:50%;transform:translate(-50%)"> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+							
+<!-- 						</div> -->
+<!-- 						<div class="row text-center matchDate" id="date"> -->
+<!-- 							<h5>{{ match.dateMatch|date:'Y-m-d H:i' }}</h5> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+					<div class="mt10px"></div>
+					
+					<form method="post" enctype="multipart/form-data">
+						<div class="row">
+							<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10 zoneForm" style=padding-top:20px;>
+								{% if formDisable %}
+								{% else %}
+									<h4 class="text-center">Faire un pronostic</h4>
+									<div class="mt20px"></div>
+									{{ form.email }}
+								{% endif %}
+								<div class="mt40px"></div>
+								<div class="row text-center" id="date">
+									<h5>
+										{% language 'fr' %}
+											{{ match.dateMatch|date:'l j F H:i'|title }}
+										{% endlanguage %}
+									</h5>
+								</div>
+								<div class="mt20px"></div>
+								<div class="row">
+									<div class="col-6">
+										<div id="txt" class="text-center">
+											<h4>{{ match.equipe1 }}</h4>
+										</div>
+										<div id="img" style="position:relative">
+											<img src="{{ match.imgEquipe1.url }}" style="height:100px;position:absolute;left:50%;transform:translate(-50%)">
+										</div>
+										<div>
+											
+										</div>
+									</div>
+									<div class="col-6 borderLeft" style="height:145px">
+										<div id="txt" class="text-center">
+											<h4>{{ match.equipe2 }}</h4>
+										</div>
+										<div id="img" style="position:relative">
+											<img src="{{ match.imgEquipe2.url }}" style="height:100px;position:absolute;left:50%;transform:translate(-50%)">
+											
+										</div>
+										<div>
+											
+										</div>
+									</div>
+								</div>
+								<div class="mt20px"></div>
+								{% if formDisable %}
+									<div class="row text-center">
+										<h4>Malheureusement les pronostics pour ce match sont terminés.</h4>
+									</div>
+								{% else %}
+									<div class="row">
+										<div class="col-6">
+											<label for="{{ form.scoreEquipe1.id_for_label }}">{{ match.equipe1 }}</label>
+											{{ form.scoreEquipe1 }}
+										</div>
+										<div class="col-6">
+											<label for="{{ form.scoreEquipe2.id_for_label }}">{{ match.equipe2 }}</label>
+											{{ form.scoreEquipe2 }}
+										</div>
+									</div>
+									<div class="mt20px"></div>
+									<div class="row text-center">
+										<div class="col-12">{{ form.consentement }} J'accepte que mon nom, mon prénom et mon pronostic soient diffusés</div>
+									</div>
+									<div class="mt20px"></div>
+									<div class=" col-12">
+										<input type="submit" value="Valider" class="btn btn-primary mb-2 offset-3 col-6">
+									</div>
+			   						{% csrf_token %}
+		   						{% endif %}
+		   						<div class="mt40px"></div>
+		    				</div>
+	    				</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		{% else %}
+			<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10 zoneForm text-center" style="padding-top:40px;padding-bottom:40px;">
+				<h4>Aucun match pour faire des pronostics disponible</h4>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,360 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	<div class="col-12 content">
+		<div class="fontGrS text-center" id="title">
+			Jakitunning
+		</div>
+		<div class="mt10px"></div>
+		{% load static %}
+		<div class="row" id="President">
+			{% for pole in poles %}
+				{% if pole.titre == 'Président' %}
+					<div class="col-12 offset-md-4 col-md-4"  >
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="row" id="AllVp">
+			{% for pole in poles %}
+				{% if pole.titre == 'VP TSP' or pole.titre == 'VP IMT-BS' or pole.titre == 'VP Bachelor' %}
+					<div class="col-12 col-md-4">
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="row" id="SecretariatTresorie">
+			{% for pole in poles %}
+				{% if pole.titre == 'Secrétariat' %}
+					<div class="col-12 col-lg-3 col-md-6">
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% elif pole.titre == 'Trésorerie' %}
+					<div class="col-12 col-lg-3 col-md-6">
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="row" id="RE">
+			{% for pole in poles %}
+				{% if pole.titre == 'Relations entreprises' %}
+					<div class="col-12 col-md-4"  >
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="row" id="Soiree">
+			{% for pole in poles %}
+				{% if pole.titre == 'Soirée' %}
+					<div class="col-12 col-md-6 col-lg-3"  >
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="row" id="Communication">
+			{% for pole in poles %}
+				{% if pole.titre == 'Communication' %}
+					<div class="col-12 col-md-6 col-lg-3"  >
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="row" id="SecretariatTresorie">
+			{% for pole in poles %}
+				{% if pole.titre == 'Prévention' %}
+					<div class="col-12 col-lg-3 col-md-6">
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% elif pole.titre == 'Sécu-log' %}
+					<div class="col-12 col-lg-3 col-md-6">
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="row" id="SecretariatTresorie">
+			{% for pole in poles %}
+				{% if pole.titre == 'SWEI-WES-WEA' %}
+					<div class="col-12 col-lg-4">
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+			{% for pole in poles %}
+				{% if pole.titre == 'Stand' %}
+						<div class="col-12 col-lg-4">
+							<div id="card">
+								<div id="imgs" class="row text-center heightLim">
+									<div id="imgZone" class="  text-center" name="card">
+										{% if pole.image and pole.image2 %}
+											<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+											<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+										{% endif %}
+									</div>
+								</div>
+								<div id="text" class="row textZone">
+									<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+									<div id="name" class="col-12 text-center">
+										{{ pole.prenom }} {{ pole.nom }}  
+										<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+										<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				
+			{% endfor %}
+		</div>
+		<div class="row" id="SecretariatTresorie">
+			{% for pole in poles %}
+				 {% if pole.titre == 'DD' %}
+					<div class="col-12 col-md-6 col-lg-6">
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+			{% for pole in poles %}
+				{% if pole.titre == 'Web' %}
+					<div class="col-12 col-md-6 col-lg-6">
+						<div id="card">
+							<div id="imgs" class="row text-center heightLim heightLim">
+								<div id="imgZone" class="  text-center" name="card">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS col-12 text-center">{% if pole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=35px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									{{ pole.prenom }} {{ pole.nom }}  
+									<a href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+	<script src="{% static 'main/js/jquery.js' %}"></script>
+	<iframe src="{% static 'main/music/music.mp3' %}" allow="autoplay" style="display:none" id="iframeAudio">
+	</iframe>
+	<script>
+		nav = document.getElementsByTagName('nav')[0]
+		nav.classList.remove("fixed-top")
+		$(document).ready(function () {
+			//
+			$("[name='card']").css({left:window.innerWidth-195,bottom:window.innerHeight-(window.innerHeight/(3/2)), position:'absolute'});
+			$("[name='card']").height(195);
+			$("[name='card']").throwable({gravity:{x:-0.1,y:-0.1},shape:"circle"});
+			
+			$('img.imgOn').height(195);
+			$('img.imgOff').height(195);
+			
+		});
+		$(function() {
+			$('.imgOn').hover(function() {
+				$(this).parent().find("img.imgOff").css('opacity', '100%');
+			}, function() {
+				// on mouseout, reset.
+				$(this).parent().find("img.imgOff").css('opacity', '0%');
+			});
+		});
+	</script>
+{% endblock %}

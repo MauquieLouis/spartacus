@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Gestion commandes de {{ commande.nom }} {{ commande.prenom }}
+		</div>
+			<div class="mt40px"></div>
+			<div id="retour" class="row">
+				<div class="offset-1 col-2 text-center">
+					<div onclick="parent.history.back()" class="retourDivBtn">
+						<-Retour
+					</div>
+				</div>
+			</div>
+			<div class="mt40px"></div>
+			<div class="row" style="padding:20px;">
+				<div class="table-responsive-xl">
+					<table class="table text-center tableFont">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Nom</th>
+								<th scope="col">Prenom</th>
+								<th scope="col">email</th>
+								<th scope="col">Tel.</th>
+								<th scope="col"><strong>Menu</strong></th>
+								<th scope="col"><strong>Date</strong></th>
+								<th scope="col"><strong>Addresse</strong></th>
+								<th scope="col">Livrée ?</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">{{ commande.nom }}</th>
+								<td>{{ commande.prenom }}</td>
+								<td>{{ commande.email }}</td>
+								<td>{{ commande.numTel }}</td>
+								<td>{{ commande.menu }}</td>
+								<td>{{ commande.dateLivraison|date:'d-m-Y H:i' }}</td>
+								<td>{{ commande.address }}</td>
+								<td>
+									{% if commande.livree %}
+										<i class="fas fa-check-circle text-success"></i>
+									{% else %}
+										<i class="fas fa-times-circle text-danger"></i>
+									{% endif %}
+									</br>
+									<a href="{% url 'main:validerCommande' commande.id %}">Valider la</br> commande</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+{% endblock %}

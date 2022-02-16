@@ -1,0 +1,153 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	{% load static %}
+	<div class="content ">
+		<div class="fontGrS text-center" id="title">
+			Mot des Pôles
+		</div>
+		{% for pole in poles %}
+			{% if forloop.counter0|divisibleby:2 %}
+				<div class="mt20px"></div>
+				<div class="row">
+					<div class="col-12 col-md-4 offset-lg-1 col-lg-3" id="imageTitreZone">
+						<div id="card{{ pole.titre }}" name="card" value="{{ pole.titre }}">
+							<div id="imgs" class="row text-center">
+								<div id="imgZone" class="position-relative text-center">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" id="img2{{ pole.titre }}" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" id="img1{{ pole.titre }}" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS2 col-12 text-center">{% if pole.respo %}<img id="laurel{{ pole.titre }}" src="{% static 'main/img/laurel.png' %}" height=30px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									<span id="name{{ pole.titre }}">{{ pole.prenom }} {{ pole.nom }}</span>  
+									<a id="linkFb{{ pole.titre }}" href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a id="linkInsta{{ pole.titre }}" href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-8 col-lg-7"   id="textePoleZone">
+						<div class="texteZonePole">
+							<div class="texteHere">
+								{{ pole.texte }}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt40px"></div>
+				<div class="greyLine"></div>
+				<div class="mt40px"></div>
+			{% else %}
+				<div class="row">
+					<div class="col-12 col-md-8 offset-lg-1 col-lg-7"   id="textePoleZone">
+						<div class="texteZonePole">
+							<div class="texteHere">
+								{{ pole.texte }}
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-4 col-lg-3" id="imageTitreZone">
+						<div id="card{{ pole.titre }}" name="card" value="{{ pole.titre }}">
+							<div id="imgs" class="row text-center">
+								<div id="imgZone" class="position-relative text-center">
+									{% if pole.image and pole.image2 %}
+										<img class="imgOff" id="img2{{ pole.titre }}" src="{{ pole.image2.url }}" alt="Jul Jul Jul" style="height:235px; width:auto;"/>
+										<img class="imgOn" id="img1{{ pole.titre }}" src="{{ pole.image.url }}" alt="Jul Jul Jul" style="height:235px; width:auto"/>
+									{% endif %}
+								</div>
+							</div>
+							<div id="text" class="row textZone">
+								<div id="role" class="fontGrS2 col-12 text-center">{% if pole.respo %}<img id="laurel{{ pole.titre }}" src="{% static 'main/img/laurel.png' %}" height=30px/>{% endif %} {{ pole.titre }}</div>
+								<div id="name" class="col-12 text-center">
+									<span id="name{{ pole.titre }}">{{ pole.prenom }} {{ pole.nom }}</span>
+									<a id="linkFb{{ pole.titre }}" href="{{ pole.LienFb }}" class="disableAEffect" target="_blank"><i class="fab fa-facebook-square"></i></a>
+									<a id="linkInsta{{ pole.titre }}" href="{{ pole.LienInsta }}" class="disableAEffect" target="_blank"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt40px"></div>
+				<div class="greyLine"></div>
+				<div class="mt40px"></div>
+			{% endif %}
+		{% endfor %}
+		<div class="mt20px"></div>
+		{% for elem in allPoles %}
+			<input type="hidden" name="changeList" value="{{ elem.titre }}!:!{{ elem.image }}!:!{{ elem.image2 }}!:!{{ elem.nom }}!:!{{ elem.prenom }}!:!{{ elem.LienFb }}!:!{{ elem.LienInsta }}!:!{{ elem.respo }}">
+		{% endfor %}
+	</div>
+	<script src="{% static 'main/js/jquery.js' %}"></script>
+	
+	<script>
+		var allElem = [];
+		arrayElem = document.getElementsByName("changeList")
+		for(var i = 0; i<arrayElem.length; i++){
+			allElem[i] = arrayElem[i].value.split("!:!")
+		}
+		console.log(allElem)
+		divType = document.getElementsByName("card")
+		console.log(divType[0]) 
+		
+		var tablePoles = [];
+		for(var i=0; i<allElem.length; i++){
+			//Créer des tableau pour chaque poles
+			tablePoles[allElem[i][0]][i] = allElem[i]
+		}
+		for(var i=0; i<divType[i].length; i++)
+		{
+			//Ajouter un setInterval pour chaque pole
+		}
+		setInterval(changePole, 5000)
+		function changePole(){
+			for(var i=0; i<divType.length; i++){
+				for(var j=0; j<allElem.length; j++){
+					//console.log(divType[i].id.split('card')[1], divType[i].value, allElem[j][0])
+					if(divType[i].id.split('card')[1] == allElem[j][0]){
+						console.log(divType[i].id.split('card')[1] +" == "+allElem[j][0])	
+						//Comparer si le nom actuel est égal au premier de la liste allElem["poleCorrespondant"]
+						elem = document.getElementById('')
+					}
+				
+				}
+				//console.log(divType[i])		
+			}	
+		}
+		function changeElem(titre, tablechange){
+			// Get All Elem
+			nameDiv = document.getElementById("name"+titre)
+			lienFb = document.getElementById("linkFb"+titre)
+			lienInsta = document.getElementById("linkInsta"+titre)
+			img1 = document.getElementById("img1"+titre)
+			img2 = document.getElementById("img2"+titre)
+			laurel = document.getElementById("laurel"+titre)
+			
+			//Change all Elem
+			nameDiv.innerHTML = tablechange[0]+' '+tablechange[1]
+			lienFb.setAttribute("href", tablechange[2])
+			lienInsta.setAttribute("href",tablechange[3])
+			img1.setAttribute("src", tablechange[4])
+			img2.setAttribute("src", tablechange[5])
+			if(tablechange[6]){
+				laurel.hidden = false
+			 }else{
+			 	laurel.hidden = true
+			 }
+		}
+		//setTimeout(changeElem,2500,'Président', ['Prenom', 'Nom', 'link1', 'link2', '/media/poles/VP%20TSP/CohenVirgil/Im1.png', '/media/poles/VP%20TSP/CohenVirgil/Im2.png', 0])
+	</script>
+	
+	<script>
+		$(function() {
+			$('.imgOn').hover(function() {
+				$(this).parent().find("img.imgOff").css('opacity', '100%');
+			}, function() {
+				// on mouseout, reset.
+				$(this).parent().find("img.imgOff").css('opacity', '0%');
+			});
+		});
+	</script>
+{% endblock %}

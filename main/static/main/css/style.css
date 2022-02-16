@@ -1,0 +1,444 @@
+/*= = = = = = C S S = = = = = =*/
+
+/* = = = = = = A = = = = = = = */
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = B = = = = = = = */
+.borderLeft
+{
+	border-left:1px solid grey;
+}
+.btnSqr
+{
+	border:4px solid #B20909;
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = C = = = = = = = */
+.colorRed
+{
+	color: #B20909;
+}
+.content
+{
+	/* width:100%; */
+	/* height:82vh; */
+	min-height:890px;
+	background:url("../img/fond.jpg");
+	background-attachment:fixed;
+	padding-top: 85px;
+	padding-bottom: 40px;
+/* 	background-size: 100% 100%;
+    background-repeat: no-repeat; */
+}
+.contentOrga2
+{
+	background:url("../img/fond.jpg");
+	min-height:790px;
+}
+.contentSpec
+{
+	
+	width:100%;
+	height:auto;
+	background:url("../img/Orga1.jpg");
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.centerImage
+{
+	position:absolute;
+	left:50%;
+	transform:translate(-50%);	
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = D = = = = = = = */
+.disableAEffect
+{
+	color:inherit;
+	text-decoration:none;
+}
+.disableAEffect:hover{
+	color:inherit;
+	text-decoration:none;
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = E = = = = = = = */
+.elemDropDownHover:hover{
+	background:#C20101;
+	color:white !important;
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = F = = = = = = = */
+.footSp
+{
+	background:#B20909;
+	width:100%;
+}
+.footText{
+	color:white;
+}
+@font-face{
+	font-family:"dalekFonts";
+	src: url('../fonts/Dalek.ttf');
+}
+.fontGrS
+{
+	font-family:"dalekFonts";
+	/*color:#DAA520;*/
+	font-size:32px;
+	color:#DAA520;
+}
+.fontGrS2
+{
+	font-family:"dalekFonts";
+	/*color:#DAA520;*/
+	font-size:26px;
+	color:#DAA520;
+}
+.fullSize
+{
+	width:100%;
+	height:100%;
+	border:5px solid red;
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = G = = = = = = = */
+.greyLine
+{
+	border-top: 1px solid #ABABAB;
+	margin-left:10%;
+	margin-right:10%;
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = H = = = = = = = */
+.heightLim
+{
+	height:235px;
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = I = = = = = = = */
+.imgHome{
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.imgOrgaDiv
+{
+	width:100%;
+	height:100%;
+	padding:0;
+	margin-top:73px;
+}
+.imgOrga
+{
+	width:100%;
+	height:auto;
+}
+.imgPicHov
+{
+	-webkit-filter: brightness(100%);
+}
+.imgPicHov:hover
+{
+	-webkit-filter: brightness(40%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#imgZone{
+	position:relative;
+	height:235px;
+	width:auto;
+	left:50%;
+	transform:translate(-325%);
+}
+/* .imgOn{
+	border:3px solid red;
+}  */
+#imgZone img{
+	position:absolute;
+	left:0;
+	-webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	transition: opacity 1s ease-in-out;
+}
+#imgZone img.imgOn:hover{
+	opacity:0;
+}
+#imgZone img.imgOff{
+	opacity:0;
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = J = = = = = = = */
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = K = = = = = = = */
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = L = = = = = = = */
+.listePoles
+{
+	border:3px solid #B20909;
+	border-radius: 10px;
+	color:#B20909;
+}
+#lsBtn
+{
+	transition: transform 0.65s;
+}
+.lstCmd
+{
+	border:3px solid #B20909;
+	border-radius: 10px;
+	color:#B20909;
+	transition: background 0.4s, border 0.4s;
+}
+.lstCmd:hover
+{
+	background: rgba(255,255,255,0.6);
+	border:3px solid #920505;
+}
+.ltText
+{
+	font-size:14px;
+	font-weight:900;
+}
+/*#lsBtn:hover
+{
+	transform:rotate(1080deg);
+}*/
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = M = = = = = = = */
+.matchCard
+{
+/* 	height:150px; */
+	border:5px solid #B20909;
+/* 	padding-lef	t:5px; */
+/* 	padding-right:5px; */
+	margin-top:20px;
+	padding:5px
+}
+.matchDate{
+	margin-top:7px;
+	border-top:1px solid grey;
+}
+.mt5px
+{
+	margin-top:5px;
+}
+.mt10px
+{
+	margin-top:10px;
+}
+.mt20px
+{
+	margin-top:20px;
+}
+.mtb20px
+ {
+ 	margin-bottom:20px;
+ }
+.mt40px
+{
+	margin-top:40px;
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = N = = = = = = = */
+.navSparta
+{
+	background:#B20909;
+	color:#DAA520 !important;
+	font-size:15px !important;
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = O = = = = = = = */
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = P = = = = = = = */
+.picParent
+{
+	position:relative;
+}
+.picStyleList
+{
+	width:100%;
+	height:250px;
+	object-fit:cover;
+	padding-left:8px;
+	padding-right:8px;
+}
+.picStyleList:hover + .picStyleListTexte{
+	display:block;
+}
+.picStyleListTexte
+{
+	position:absolute;
+	left:50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color:white;
+	display:none;
+	pointer-events:none
+	
+}
+
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = Q = = = = = = = */
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = R = = = = = = = */
+.retourDivBtn
+{
+	border:3px solid #B20909;
+	border-radius: 6px;
+	color:#B20909; 	
+	transition: all	0.2s ease-in-out;
+	
+}
+.retourDivBtn:hover{
+	border:5px solid #B20909;
+	background: rgba(255,255,255,0.5);
+	cursor:pointer;
+	
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = S = = = = = = = */
+.scoreProno
+{
+	border-top: 1px solid grey;
+	margin-bottom:8px;
+}
+.selectFormBtn
+{
+	border:3px solid #B20909;
+	border-radius: 6px;
+	color:#B20909; 
+	transition: background 0.4s, border 0.4s;
+}
+.selectFormBtn:hover
+{
+	border:3px solid #B20909;
+	border-radius: 6px;
+	color:#B20909;
+	background: rgba(255,255,255,0.5);
+}
+.selectIcon:hover
+{
+	opacity:0.6;
+	cursor:pointer
+}
+.selectTypeM
+{
+	background: rgba(178,9,9,0.7);
+/* 	font-size:20px; */
+	color:white
+	
+}
+.showPicture{
+/* 	border:2px solid black; */
+	position:absolute;
+	width:80%;
+	height:60%;
+	top:20%;
+	left:10%;
+	background:rgba(255,255,255,1);
+}
+.showPictureDisplay
+{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+/* 	height:100%; */
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = T = = = = = = = */
+.tableFont
+{
+	font-size:15px;
+}
+.texteHere
+{
+	padding-top:10px;
+	color:#000000;
+	text-align:center;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+
+/* .texteRow
+{
+	display:table-row;
+}
+.texteSpan
+{
+	display: table-cell;
+    vertical-align: middle;
+    text-align:center;
+} */
+.textZone
+{
+	background:url("../img/Lave.jpg");
+	color:white;
+	font-size:20px;
+	border:2px solid black;
+}
+.texteZonePole
+{
+	background: rgba(255,255,255,0.5);
+	height:100%;
+	width:100%;
+	border:6px solid #CECECE;
+	border-radius:15px;
+	padding-left: 20px;
+	padding-right: 20px;	
+	
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = U = = = = = = = */
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = V = = = = = = = */
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = W = = = = = = = */
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = X = = = = = = = */
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = Y = = = = = = = */
+.yel
+{
+	color:#DAA520 !important;
+}
+/* = = = = = = = = = = = = = = */
+
+/* = = = = = = Z = = = = = = = */
+.zoneForm
+{
+	background: rgba(255,255,255,0.5);
+	border:6px solid #CECECE;
+	border-radius:15px;
+}
+/* = = = = = = = = = = = = = = */

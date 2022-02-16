@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		{% load static %}
+		<div class="div">
+			<h3 class="txt">Et beeeeh alors ! On s'est perdu ?</h3>
+			<img src="{% static 'main/img/RR2.jpg' %}" height=400px/>
+		</div>
+		<h3 style="margin:auto">Ooops ! page introuvable : <span class="clck" onclick="goBack()">Retour au site</span></h3>
+		<style>
+			.div{
+				position:absolute;
+				left:50%;
+				transform:translate(-50%);
+				margin-top:50px;
+			}
+			.txt
+			{
+				text-align:center;
+			}
+			.clck
+			{
+				color:blue;
+			}
+			.clck:hover
+			{
+				text-decoration:underline;
+				cursor:pointer;
+			}
+		</style>
+		<script>
+			function goBack(){
+				window.history.back();
+			}
+		</script>
+	</body>
+</html>

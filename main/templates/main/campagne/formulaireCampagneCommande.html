@@ -1,0 +1,102 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Commande petit-déjeuner
+		</div>
+		<div class="col-12">
+			<div class="row">
+				<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10">
+					{% if form.errors %}
+					    {% for field in form %}
+					        {% for error in field.errors %}
+					            <p> {{ error }} </p>
+					        {% endfor %}
+					    {% endfor %}
+					{% endif %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="mt40px"></div>
+				<div class="col-12" style="padding-left:40px;padding-right:40px;">
+					<form method="post">
+						<div class="row">
+							<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10 zoneForm" style=padding-top:40px;>
+								<div class=" col-12">
+									{{ form.nom.label }}
+									{{ form.nom }}
+								</div>
+								<div class="mt20px"></div>
+								<div class=" col-12">
+									{{ form.prenom.label }}
+									{{ form.prenom }}
+								</div>
+								<div class="mt20px"></div>
+								<div class=" col-12">
+									{{ form.address.label }}
+									{{ form.address }}
+								</div>
+								<div class="mt20px"></div>
+								<div class=" col-12">
+									{{ form.email.label }}
+									{{ form.email }}
+								</div>
+								<div class="mt20px"></div>
+								<div class=" col-12">
+									<div class="row">
+										<div style="display:inline-block;">{{ form.dateLivraison }}</div>
+									</div>
+								</div>
+								<div class="mt20px"></div>
+								<div class=" col-12">
+									<div class="row">
+<!-- 										<div class="col-12"> -->
+<!-- 											Choisir l'horaire de livraison: -->
+<!-- 										</div> -->
+										<div class="col-12">	
+											{{ form.heureLivraison.label }}								
+											{{ form.heureLivraison }}
+										</div>
+										<div class="col-12 form-text text-muted">
+											<!-- Délai de livraison indiqué dans le fichier de formulaire -->
+											{{ form.heureLivraison.help_text }}
+										</div>
+									</div>
+								</div>
+								<div class="mt20px"></div>
+								<div class=" col-12">
+									{{ form.menu.label }}</br>
+									{% for menu in form.menu %}
+										<div class="form-check-inline">{{ menu }}</div>
+									{% endfor %}
+								</div>
+								<div class="mt20px"></div>
+<!-- 								<div class=" col-12"> -->
+<!-- 									{{ form.boisson.label }}</br> -->
+<!-- 									{% for boisson in form.boisson %} -->
+<!-- 										<div class="form-check-inline">{{ boisson }}</div> -->
+<!-- 									{% endfor %} -->
+<!-- 								</div> -->
+								<div class="col-12">
+									{{ form.demande.label }}
+									{{ form.demande }}
+								</div>
+								<div class="mt20px"></div>
+								<div class=" col-12">
+									{{ form.numTel.label }}
+									{{ form.numTel }}
+								</div>
+								<div class="mt20px"></div>
+		   						{% csrf_token %}
+								<div class=" col-12">
+									<input id="submit" type="submit" value="Valider" class="btn btn-primary mb-2 offset-3 col-6">
+								</div>
+		   						<div class="mt40px"></div>
+		    				</div>
+	    				</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

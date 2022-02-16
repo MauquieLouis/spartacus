@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	{% load static %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Créer liens QR Code
+		</div>
+		<div class="mt20px"></div>
+		<a href="{% url 'main:scanQrCodeShowList'  %}" class="selectFormBtn disableAEffect col-12 offset-md-1 offset-lg-3">Liste QR Code</a>
+		<div class="mt20px"></div>
+		<div class="col-12">
+			<div class="row">
+				<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10">
+					{% if form.errors %}
+					    {% for field in form %}
+					        {% for error in field.errors %}
+					            <p> {{ error }} </p>
+					        {% endfor %}
+					    {% endfor %}
+					{% endif %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="mt40px"></div>
+				<div class="col-12" style="padding-left:40px;padding-right:40px;">
+					<form method="post">
+						<div class="row">
+							<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10 zoneForm" style=padding-top:40px;>
+								{% for elem in form %}
+									<div class="mt20px"></div>
+									 <div class="col-12">{{ elem }}</div>
+								{% endfor %}
+								<div class="mt20px"></div>
+								<div class=" col-12">
+									<input type="submit" value="Valider" class="btn btn-primary mb-2 offset-3 col-6">
+								</div>
+		   						{% csrf_token %}
+		   						<div class="mt40px"></div>
+		    				</div>
+	    				</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

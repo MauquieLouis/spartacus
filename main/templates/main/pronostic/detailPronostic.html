@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	{% load static %}
+	{% load i18n %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Detail pronostic match
+		</div>
+		<div class="mt20px"></div>
+		<div onclick="parent.history.back()" class="retourDivBtn text-center offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10">
+			<----- Retour <------
+		</div>
+		<div class="row">
+			<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10 zoneForm">
+				<div class="row">
+					<div class="col-6">
+						<div id="txt" class="text-center">
+							<h4>{{ match.equipe1 }}</h4>
+						</div>
+						<div id="img" style="position:relative">
+							<img src="{{ match.imgEquipe1.url }}" style="height:100px;position:absolute;left:50%;transform:translate(-50%)">
+						</div>
+					</div>
+					<div class="col-6 borderLeft" style="height:145px">
+						<div id="txt" class="text-center">
+							<h4>{{ match.equipe2 }}</h4>
+						</div>
+						<div id="img" style="position:relative">
+							<img src="{{ match.imgEquipe2.url }}" style="height:100px;position:absolute;left:50%;transform:translate(-50%)">
+						</div>
+					</div>
+				</div>
+				<div class="mt20px"></div>
+				<div class="row">
+					<div class="text-center" id="date">
+						<h5>
+							{% language 'fr' %}
+								{{ match.dateMatch|date:'l j F H:i'|title }}
+							{% endlanguage %}
+						</h5>
+					</div>
+				</div>
+				<div class="mt40px"></div>
+				<div class="row">
+<!-- 					<div class="col-12 text-center"> -->
+<!-- 						Les pronostics sont triés par date  -->
+<!-- 					</div> -->
+					<div class="mt10px"></div>
+					{% for pronostic in pronostics %}
+						<div class="col-12">
+							<div class="row scoreProno">
+								<div class="col-4 text-center"><strong>{{ pronostic.scoreEquipe1 }}</strong></div>
+								<div class="col-4 text-center">{{ pronostic.nom|title }}  {{ pronostic.prenom|title }}</div>
+								<div class="col-4 text-center"><strong>{{ pronostic.scoreEquipe2 }}</strong></div>
+							</div>
+						</div>
+					{% endfor %}	
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

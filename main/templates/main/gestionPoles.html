@@ -1,0 +1,83 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	<div class="content">
+		{% load static %}
+		<div class="fontGrS text-center" id="title">
+			Formulaire Ajouter Pole
+		</div>
+		{% if form.errors %}
+			{{ form.errors }}
+		{%  endif %}
+		<div class="mt20px"></div>
+		{% if pole %}
+			<a href="{% url 'main:deletePole' pole.id %}" class="offset-md-2 col-md-10 offset-1 col-10 disableAEffect listePoles"><i class="far fa-times-circle"></i> Supprimer le membre</a>
+		{% endif %}
+		<div class="mt20px"></div>
+		<div class="row">
+			<div class="col-12 col-lg-8">
+				<form method="post" enctype="multipart/form-data">
+					{% for elem in form %}
+						<div class="row">
+							{% if elem.name == 'image' %}
+								<div class="offset-1 col-11 offset-md-2 col-md-4"><h5>Choisir la 1ère image</h5></div>
+								<div class="offset-1 col-11 offset-md-0 col-md-4">{{ elem }}</div>
+							{% elif elem.name == 'image2' %}
+								<div class="offset-1 col-11 offset-md-2 col-md-4"><h5>Choisir la 2ème image</h5></div>
+								<div class="offset-1 col-11 offset-md-0 col-md-4">{{ elem }}</div>
+							{% elif elem.name == 'respo' %}
+								<div class="offset-1 col-11 offset-md-2 col-md-4"><h5>Respo du pôle ?</h5></div>
+								<div class="offset-1 col-9 offset-md-0 col-md-4">{{ elem }}</div>
+							{% elif elem.name == 'rang' %}
+								<div class="offset-1 col-11 offset-md-2 col-md-4"><strong>Si vous ne savez pas, ne changez rien.</strong></div>
+								<div class="offset-1 col-9 offset-md-0 col-md-4">{{ elem }}</div>
+							{% else %}
+								<div class="offset-1 col-9 offset-md-2 col-md-8">{{ elem }}</div>
+							{% endif %}
+							
+						</div>
+					{% endfor %}
+						<div class="offset-1 col-9 offset-md-2 col-md-8"><input type="submit" value="Submit" class="btn btn-primary mb-2"></div>
+					{% csrf_token %}
+				</form>
+			</div>
+			<div class="col-12 col-lg-4">
+				{% if pole %}
+					<a href="{% url 'main:gestionPoles' %}" class="disableAEffect">
+					<div class="row listePoles" style="height:60px;">
+								<div class="col-2"><i class="far fa-plus-square" style="font-size:35px;margin-top:10px"></i></div>
+								<div class="col-10" style="margin-top:10px"><strong>Ajouter un nouveau membre</strong> </div>
+							</div>
+					</a>
+				{% endif %}
+				{% for eachpole in poles %}
+					<div class='mt5px'></div>
+					<a href="{% url 'main:gestionPolesId' eachpole.id %}" class="disableAEffect">
+						<div class="row listePoles" style="height:60px;{% if eachpole.id == pole.id %}background: rgba(255,255,255,0.6);"{% endif %}">
+							{% if eachpole.image %}<div class="col-2"><img src="{{ eachpole.image.url }}" style="height:55px;"/></div>{% endif %}
+							<div class="col-4"><strong>{% if eachpole.respo %}<img src="{% static 'main/img/laurel.png' %}" height=15px/> {% endif %}{{ eachpole.titre }} :</strong> </div>
+							<div class="col-6">{{ eachpole.nom }} {{ eachpole.prenom }}</div>
+						</div>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<script>
+		console.log("salut")
+		selectRespo = document.getElementById('respo');	
+		textArea = document.getElementById('texte');
+		if(selectRespo.value == 'true'){
+				textArea.disabled = false;
+			}else{
+				textArea.disabled = true;	
+			}
+		selectRespo.onchange = function(){
+			console.log('change')
+			if(selectRespo.value == 'true'){
+				textArea.disabled = false;
+			}else{
+				textArea.disabled = true;	
+			}
+		}
+	</script>
+{% endblock %}

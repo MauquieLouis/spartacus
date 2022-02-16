@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	{% load static %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Scan Qr Code
+		</div>
+		<div class="mt40px"></div>
+			<div class="col-12 offset-md-1 offset-lg-2 col-lg-8 col-md-10 zoneForm text-center">
+				<h4>Il reste : </h4><strong>{{ qrCodeGagnant }}</strong> QR code gagnant.
+			</div>
+		<div class="mt40px"></div>
+		<div class="row">
+			{% if gagnant %}
+				<div class="col-12 offset-md-1 offset-lg-2 col-lg-8 col-md-10 zoneForm text-center">
+					<h4>Bravo, c'est un ticket gagnant ! (vous êtes désormais riche, bg !)</h4>
+				</div>
+				<div class="mt40px"></div>
+				<div class="col-12 offset-md-1 offset-md-2 col-md-8 offset-lg-4 col-lg-4" style="position:relative">
+					<img src="{% static 'main/img/riche.jpg' %}" style="height:auto;width:100%" class="centerImage">
+				</div>
+			{% else %}
+				<div class="col-12 offset-md-1 offset-lg-2 col-lg-8 col-md-10 zoneForm text-center">
+					<h4>Ah mince... vous avez perdu, un huissier de justice va venir saisir vos meubles...</h4>
+				</div>
+				<div class="mt40px"></div>
+				<div class="col-12 offset-md-2 col-md-8 offset-lg-4 col-lg-4" style="position:relative">
+					<img src="{% static 'main/img/meubles.jpg' %}" style="height:auto;width:100%" class="centerImage">
+				</div>
+			{% endif %}	
+      	</div>
+	</div>
+{% endblock %}

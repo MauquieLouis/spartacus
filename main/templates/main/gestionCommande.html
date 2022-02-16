@@ -1,0 +1,170 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Gestion commandes
+		</div>
+		<div class="row">
+			<div class="mt40px"></div>
+			<div id="SelectTrie" class="row">
+				<h5 class="text-center col-12">Trier par : </h5>
+				<div class="mt20px"></div>
+				<div class="col-12"><a href="{% url 'main:listePersonne' 'soir' %}">ListePersonne</a></div>
+				<div class="col-12 offset-lg-3 col-lg-6">
+					<div class="row">
+						<div class="col-2 text-center">
+							<a id="selectValide" class="selectIcon disableAEffect">
+								<i class="fas fa-check-circle text-success" style="font-size:28px;"></i>
+								</br><span class="ltText">Validé</span>
+							</a>
+						</div>
+						<div class="col-2 text-center" >
+							<a id="selectEnCours" class="selectIcon disableAEffect">
+								<i class="fas fa-times-circle text-danger" style="font-size:28px;"></i>
+								</br><span class="ltText">En Cours</span>
+							</a>
+						</div>
+						<div class="col-2 text-center">
+							<a id="selectMatin" class="selectIcon disableAEffect">
+								<i class="fas fa-moon text-primary" style="font-size:28px;"></i>
+								</br><span class="ltText">Soir</span>
+							</a>
+						</div>
+						<!-- <div class="col-2 text-center">
+							<a id="selectMidi" class="selectIcon disableAEffect">
+								<i class="fas fa-hand-middle-finger text-primary" style="font-size:28px;"></i>
+								</br><span class="ltText">Midi</span>
+							</a>
+						</div> -->
+						<div class="col-2 text-center">
+							<a id="selectAll" class="selectIcon disableAEffect" onclick="seeAll()">
+								<i class="fas fa-list text-primary" style="font-size:28px;"></i>
+								</br><span class="ltText">Toutes les</br>commandes</span>
+							</a>
+						</div>
+						<div class="col-2 text-center">
+							<a id="selectSoir" class="selectIcon disableAEffect">
+								<i class="fas fa-coffee text-primary" style="font-size:28px;"></i>
+								</br><span class="ltText">Matin</span>
+							</a>
+						</div>
+						<div class="col-2 text-center">
+							<a id="selectSoir" class="selectIcon disableAEffect">
+								<i class="fas fa-search text-primary" style="font-size:28px;"></i>
+								</br><span class="ltText">Chambre</span>
+							</a>
+						</div>
+						<!-- <div class="col-2 text-center">
+							<a id="selectAjdEnCours" class="selectIcon disableAEffect">
+								<i class="far fa-calendar-times text-danger" style="font-size:28px;"></i>
+								</br><span class="ltText">En cours</br> Aujourd'hui</span>	
+							</a>
+						</div> -->
+					</div>
+						<!-- <div class="col-2 text-center">
+							<a id="selectAjdValide" class="selectIcon disableAEffect">
+								<i class="far fa-calendar-check text-success" style="font-size:28px;"></i>
+								</br><span class="ltText">Validé</br> Aujourd'hui</span>
+							</a>
+						</div> -->
+						<!-- <div class="col-2 text-center" >
+							<a id="selectEnCours" class="selectIcon disableAEffect">
+								<i class="far fa-calendar-alt text-primary" style="font-size:28px;"></i>
+								</br><span class="ltText">Demain</span>
+							</a>
+						</div> -->
+						<!-- <div class="col-2 text-center">
+							<a id="selectMatin" class="selectIcon disableAEffect">
+								<i class="fas fa-calendar-alt text-primary" style="font-size:28px;"></i>
+								</br><span class="ltText">Après-Demain</span>
+							</a>
+						</div> -->
+						<!-- <div class="col-2 text-center">
+							<a id="selectMidi" class="selectIcon disableAEffect">
+								<i class="fas fa-calendar text-primary" style="font-size:28px;"></i>
+								</br><span class="ltText">+3 jours</span>
+							</a>
+						</div> -->
+						
+						<!-- <div class="col-2 text-center">
+							<a id="selectAjdEnCours" class="selectIcon disableAEffect">
+								<i class="fas fa-envelope text-danger" style="font-size:28px;"></i>
+								</br><span class="ltText">Non validé</br>par email</span>	
+							</a>
+						</div> -->
+				</div>
+			</div>
+			<div class="mt20px"></div>
+			<div class="row">
+				<div id="count" class="colorRed col-12 offset-lg-3 col-lg-6">
+				Total : <strong>{{ count }}</strong> 
+				Total validé : <strong>{{ countVal }}</strong></br> 
+				Total Tartiflette: <strong>{{ countSoir }}</strong> 
+				Total PtitDej : <strong>{{ countMatin }}</strong></br>
+				Total Tar. Classique : <strong>{{ countTarCla }}</strong>
+				Total Tar. Végé. : <strong>{{ countTarVeg }}</strong>
+				Total Tar. Halal : <strong>{{ countTarHal }}</strong></br></br>
+				Total PtitDej Pain de Mie : <strong>{{ countPDPainMie }}</strong>
+				Total PtitDej Pancake : <strong>{{ countPDPancake }}</strong></br>
+				Total PtitDej Jus d'orange: <strong>{{ countJusOrange }}</strong>
+				Total PtitDej Multifruit : <strong>{{ countMultifruit }}</strong>
+				Total PtitDej Café : <strong>{{ countCafe }}</strong></br></br>
+				Total PainDeMie+Jusd'Orange : <strong>{{ countPDPainMieJo }}</strong>
+				Total PainDeMie+MultiFruit : <strong>{{ countPDPainMieMt }}</strong>
+				Total PainDeMie+Café : <strong>{{ countPDPainMieCa }}</strong></br>
+				Total Pancake+Jusd'Orange : <strong>{{ countPDPancakeJo }}</strong>
+				Total Pancake+MultiFruit : <strong>{{ countPDPancakeMt }}</strong>
+				Total Pancake+Café : <strong>{{ countPDPancakeCa }}</strong>
+				
+				</div>
+			</div>
+			<div class="mt40px"></div>
+			{% for commande in commandes %}
+				{% if commande.link == 'True' %}
+					<div class='mt40px commandes {% if commande.type == "matin" %}matin{% else %}soir{% endif %}'  {% if commande.livree %}name="valide"{% else %}name="enCours"{% endif %}>
+						<div class="row text-center">
+							<a href="{% url 'main:commandeWESGestionInfo' commande.id %}" class="disableAEffect">
+								<div class="col-12 offset-lg-3 col-lg-6 lstCmd" >
+									<strong>{{ commande.menu }} pour {{ commande.nbPersonne }}</strong> {{ commande.nom }} {{ commande.prenom }} - {{ commande.address }} - <strong>{{ commande.dateLivraison|date:'d/m/Y H:i' }}</strong> - {{ commande.numTel }}
+									</br>
+									{% if commande.livree %}
+										<i class="fas fa-check-circle text-success" style="font-size:28px;"></i>
+									{% else %}
+										<i class="fas fa-times-circle text-danger" style="font-size:28px;"></i>
+									{% endif %}
+								</div>
+							</a>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+			</div>
+		</div>
+		<script>
+			document.getElementById('selectValide').addEventListener("click",function(){selection('enCours','valide')})
+			document.getElementById('selectEnCours').addEventListener("click",function(){selection('valide','enCours')})
+			document.getElementById('selectMatin').addEventListener("click",function(){selectionType('matin','soir')})
+			document.getElementById('selectSoir').addEventListener("click",function(){selectionType('soir','matin')})
+			document.getElementById('seletAll').addEventListener("click", function(){displayAll()})
+			
+			function displayAll()
+			{
+				document.querySelectorAll(".commandes").forEach(element => element.hidden=false)
+			}
+			function selection(param1, param2){
+				document.getElementsByName(param1).forEach(element => element.hidden=true)
+				document.getElementsByName(param2).forEach(element => element.hidden=false)
+			}	
+			function selectionType(param1, param2){
+				console.log(param1,param2)
+				console.log(document.getElementsByClassName(param1),document.getElementsByClassName(param2))
+				document.querySelectorAll("."+param1).forEach(element => element.hidden=true)
+				document.querySelectorAll("."+param2).forEach(element => element.hidden=false)
+			}
+			function seeAll(){
+				console.log("seeAll")
+				document.getElementsByName('valide').forEach(element => element.hidden=false)
+				document.getElementsByName('enCours').forEach(element => element.hidden=false)
+			}
+		</script>
+{% endblock %}

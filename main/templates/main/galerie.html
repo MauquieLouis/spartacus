@@ -1,0 +1,70 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	{% load static %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Galerie
+		</div>
+		<div class="mt40px"></div>
+		<div class="row">
+			{% for picture in pictures %}  	  
+	            <div class="col-4 mt20px">
+	                <a href="#" class="disableAEffect" id="{{ picture.id }}" onclick="displayPicture({{ picture.id }}, '{{ picture.image.url }}')">
+	                	<div class="picParent">	
+	                		<img src="{{ picture.image.url }}" class="picStyleList imgPicHov" alt="{{ picture.legende }}"/>
+	                		<div class="picStyleListTexte">{{ picture.texte }}</div>
+                		</div>
+	                </a>
+	            </div>		
+	       	{% endfor %}	
+      	</div>
+      	<div id="showPicture" class="showPicture" hidden>
+      		
+      	</div>
+	</div>
+	
+	<script>
+		function displayPicture(id, img){
+			var flag = 0;
+			divDisplay = document.getElementById('showPicture')
+			divDisplay.hidden = false
+			imgDim = new Image();
+			imgDim.src = img;
+			console.log(imgDim)
+			imgDim.onload = function(){
+				console.log(this.width +  'x' + this.height)
+				imgWidth = this.width
+				imgHeight = this.height;
+			}
+			divDisplay.innerHTML+=("<div class='col-8'><img class='showPictureDisplay' src='"+img+"' height=100% /></div><div class='col-4'></div>")
+			disableClick("none", divDisplay);
+			document.addEventListener("click", function(evt){
+				const divDisplay = document.getElementById('showPicture');
+				let targetElement = evt.target;
+				if (targetElement == divDisplay) {
+					return
+				}else{
+					if(flag != 0){ 
+					divDisplay.hidden = true;
+					flag=0;
+					document.removeEventListener("click",arguments.callee,false);
+					disableClick("auto", divDisplay)
+					divDisplay.innerHTML=" "
+					}else{
+						flag++;
+					}
+				}
+			});
+		}
+		function disableClick(param, divSave){
+			var body = document.getElementsByTagName("body")[0]
+			if(param =="none"){
+				body.style ="pointer-events : "+param+";overflow:hidden;"
+			}else
+			{
+				body.style =" ";
+			}
+			divSave.style="pointer-events :auto; box-shadow: 0 0 0 100vmax rgba(0,0,0,0.5);"
+		}
+	</script>
+{% endblock %}

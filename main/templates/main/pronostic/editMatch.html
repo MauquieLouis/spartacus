@@ -1,0 +1,82 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	{% load static %}
+	<div class="content">
+		<div class="fontGrS text-center" id="title">
+			Editer un match
+		</div>
+		<div class="mt20px"></div>
+		<div onclick="parent.history.back()" class="retourDivBtn text-center">
+			<----- Retour <------
+		</div>
+		<div class="mt20px"></div>
+		<div class="col-12">
+			<div class="row">
+				<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10">
+					{% if form.errors %}
+					    {% for field in form %}
+					        {% for error in field.errors %}
+					            <p> {{ error }} </p>
+					        {% endfor %}
+					    {% endfor %}
+					{% endif %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="mt40px"></div>
+				<div class="col-12" style="padding-left:40px;padding-right:40px;">
+					<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10 zoneForm">
+						<div class="row">
+								<div class="col-6">
+									<div id="txt" class="text-center">
+										<h4>{{ match.equipe1 }}</h4>
+									</div>
+									<div id="img" style="position:relative">
+										<img src="{{ match.imgEquipe1.url }}" style="height:100px;position:absolute;left:50%;transform:translate(-50%)">
+									</div>
+								</div>
+								<div class="col-6 borderLeft" style="height:145px">
+									<div id="txt" class="text-center">
+										<h4>{{ match.equipe2 }}</h4>
+									</div>
+									<div id="img" style="position:relative">
+										<img src="{{ match.imgEquipe2.url }}" style="height:100px;position:absolute;left:50%;transform:translate(-50%)">
+									</div>
+								</div>
+								
+							</div>
+							<div class="row text-center matchDate" id="date">
+								<h5>{{ match.dateMatch|date:'Y-m-d H:i' }}</h5>
+							</div>
+					</div>
+					<div class="mt10px"></div>
+					<form method="post" enctype="multipart/form-data">
+						<div class="row">
+							<div class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10 zoneForm" style=padding-top:40px;>
+								{% for elem in form %}
+									<div class="mt20px"></div>
+									<div class="col-12">{{ elem.label }}</div>
+									 <div class="col-12">{{ elem }}</div>
+								{% endfor %}
+								<div class="mt20px"></div>
+								<div class=" col-12">
+									<input type="submit" value="Valider" class="btn btn-primary mb-2 offset-3 col-6">
+								</div>
+		   						{% csrf_token %}
+		   						<div class="mt40px"></div>
+		    				</div>
+	    				</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="mt40px"></div>
+		<div id="SupprMatch" class="offset-lg-3 col-lg-6 col-12 offset-md-1 col-md-10">
+			<a href="{% url 'main:deleteMatch' match.id %}" class="btn btn-danger mb-2 offset-3 col-6	">Supprimer le Match</a>
+		</div>
+	</div>
+	<script>
+		dateInput = document.getElementById('dateMatch')
+		dateInput.type = 'datetime-local'
+	</script>
+{% endblock %}

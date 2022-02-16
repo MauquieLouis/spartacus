@@ -1,0 +1,61 @@
+{% extends 'main/base.html' %}
+{% block content %}
+	<div class="content">
+		{% load static %}
+		<div class="fontGrS text-center" id="title">
+			Formulaire Image Galerie
+		</div>
+		{% if form.errors %}
+			{{ form.errors }}
+		{%  endif %}
+		<div class="mt20px"></div>
+		{% if picture %}
+			<a href="{% url 'main:deletePicture' picture.id %}" class="offset-md-2 col-md-10 offset-1 col-10 disableAEffect listePoles"><i class="far fa-times-circle"></i> Supprimer la photo</a>
+		{% endif %}
+		<div class="mt20px"></div>
+		<div class="row">
+			<div class="col-12 col-lg-8">
+				<form method="post" enctype="multipart/form-data">
+					{% for elem in form %}
+						<div class="row">
+							{% if elem.name == 'image' %}
+								<div class="offset-1 col-11 offset-md-2 col-md-3"><h5>Choisir l'image :</h5></div>
+								<div class="offset-1 col-11 offset-md-0 col-md-4">{{ elem }}</div>
+							{% elif elem.name == 'display' %}
+								<div class="offset-1 col-11 offset-md-2 col-md-6"><h5>Afficher l'image dans la galerie ? :</h5></div>
+								<div class="offset-1 col-9 offset-md-0 col-md-2">{{ elem }}</div>
+							{% else %}
+								<div class="offset-1 col-9 offset-md-2 col-md-8">{{ elem }}</div>
+							{% endif %}
+						</div>
+					{% endfor %}
+						<div class="offset-1 col-9 offset-md-2 col-md-8"><input type="submit" value="Submit" class="btn btn-primary mb-2"></div>
+					{% csrf_token %}
+				</form>
+			</div>
+			<div class="col-12 col-lg-4">
+				{% if picture %}
+					<a href="{% url 'main:gestionPictures' %}" class="disableAEffect">
+					<div class="row listePoles" style="height:60px;">
+								<div class="col-2"><i class="far fa-plus-square" style="font-size:35px;margin-top:10px"></i></div>
+								<div class="col-10" style="margin-top:10px"><strong>Ajouter une image</strong> </div>
+							</div>
+					</a>
+				{% endif %}
+				{% for eachpicture in pictures %}
+					<div class='mt5px'></div>
+					<a href="{% url 'main:gestionPicturesId' eachpicture.id %}" class="disableAEffect" >
+						<div class="row listePoles" style="height:86px; {% if eachpicture.id == picture.id %}background: rgba(255,255,255,0.75);{% endif %}">
+							{% if eachpicture.image %}<div class="col-2"><img src="{{ eachpicture.image.url }}" style="height:80px;"/></div>{% endif %}
+							<div class="col-4"><strong>{{ eachpicture.legende }} :</strong> </div>
+							<div class="col-6">{{ eachpicture.texte }}</div>
+						</div>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<script>
+		
+	</script>
+{% endblock %}
